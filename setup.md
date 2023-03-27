@@ -3,7 +3,7 @@ fork 工程：https://github.com/madawei2699/myGPTReader
 
 用chatGPT查看了每一个文件的作用，了解了是用fly部署的
 
-通过查看大卫老师的视频，了解了工程的运作模式和逻辑
+通过查看大伟老师的视频，了解了工程的运作模式和逻辑
 
 通过GPT的询问，知道了如何部署。
 
