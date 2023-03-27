@@ -50,7 +50,7 @@ data挂载点配置没对，gpt提醒后更改了fly.toml配置，重新执行de
 
 部署成功
 ```
-Machine **39080553cd7087 [app]** update finished: success
+Machine **xx [app]** update finished: success
 
 Finished deploying
 ```
@@ -64,7 +64,7 @@ Finished deploying
 
 在### Subscribe to bot events中，选择 "Add Bot User Event"，把需要监控的事件添加好
 
-通过向GPT询问，获知监听的端点地址：https://mychatreader.fly.dev/slack/events
+通过向GPT询问，获知监听的端点地址：https://xxx.fly.dev/slack/events
 
 填写到slack后，判断为无响应
 
