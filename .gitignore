@@ -125,5 +125,9 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+crypto_news_rss.json
+test.py
+mymind.json
+
 # Pyre type checker
 .pyre/
