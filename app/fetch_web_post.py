@@ -49,7 +49,7 @@ def format_text(text):
     return fix_chinese_split_chunk_size_error
 
 def scrape_website(url: str) -> str:
-    endpoint_url = f"https://web-scraper.i365.tech/?url={url}&selector=div"
+    endpoint_url = f"https://web-scraper.nig-daemon.workers.dev/?url={url}&selector=div"
     headers = {
         'CF-Access-Client-Id': CF_ACCESS_CLIENT_ID,
         'CF-Access-Client-Secret': CF_ACCESS_CLIENT_SECRET,

@@ -12,6 +12,9 @@ primary_region = "nrt"
 [build.settings]
   pythonbase = "3.9-slim-buster"
 
+[resources]
+  memory = 512
+
 [env]
   PORT = "8080"
 
