@@ -94,6 +94,6 @@ ps：一步一步配置后，配置文件与fork有了区别，我又把配置�
 
 整个部署过程花了不到1天时间，我自己还是挺兴奋的。以后可以在此基础上持续的完善了。
 
-![DlUVAx](https://raw.githubusercontent.com/nigdaemon/oss/master/uPic/DlUVAx.png)
-
 最后要非常感谢大伟老师：https://twitter.com/madawei2699
+
+![showgif](https://github.com/nigdaemon/myGPTReader/blob/main/docs/myGPTReader.gif)
