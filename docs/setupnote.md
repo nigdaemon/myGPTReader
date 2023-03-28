@@ -30,8 +30,6 @@
 
 4、fork myGPTReader，并clone到本地
 
-fork 工程：https://github.com/madawei2699/myGPTReader
-
 5、修改必要的配置文件
 	- fly.toml
 	- vip_whitelist.txt 增加自己的userid
