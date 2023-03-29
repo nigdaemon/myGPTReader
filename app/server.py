@@ -71,7 +71,7 @@ def send_crypto_news(client, news):
         except Exception as e:
             logging.error(e)
 
-@scheduler.task('cron', id='daily_crypto_task', hour=1, minute=00)
+@scheduler.task('cron', id='daily_crypto_task', hour=2, minute=30)
 def crypto_news():
     logging.info("=====> Start to send crypto news!")
     all_crypto_blocks = build_all_crypto_block()
