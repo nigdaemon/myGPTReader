@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# local
+.DS_Store
+crypto_news_rss.json
+test.py
+mymind.json
