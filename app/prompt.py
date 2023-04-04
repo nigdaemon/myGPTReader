@@ -6,7 +6,7 @@ QUESTION_ANSWER_PROMPT_TMPL_CN = (
     "---------------------\n"
     "{context_str}"
     "\n---------------------\n"
-    "无论我给你提供的上下文是什么语言，都请用中文回答我的问题。我的问题是：{query_str}\n"
+    "我的问题是：{query_str}\n 。用中文回答，如果返回是英文，将它翻译为中文。"
 )
 
 QUESTION_ANSWER_PROMPT_TMPL_EN = (
