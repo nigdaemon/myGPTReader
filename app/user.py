@@ -11,7 +11,7 @@ CF_ACCESS_CLIENT_SECRET = os.environ.get('CF_ACCESS_CLIENT_SECRET')
 def update_message_token_usage(user_id, message_id, message_type, llm_token_usage=0, embedding_token_usage=0) -> bool:
     logging.info(f"Updating message token usage for user {user_id} and message {message_id}")
 
-    endpoint_url = "https://api.myreader.io/api/message"
+    endpoint_url = "https://userdata.nig-daemon.workers.dev/api/message"
     headers = {
         'CF-Access-Client-Id': CF_ACCESS_CLIENT_ID,
         'CF-Access-Client-Secret': CF_ACCESS_CLIENT_SECRET,
