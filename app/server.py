@@ -42,9 +42,11 @@ def handle_errors(error):
     else:
         return BoltResponse(status=500, body="Something Wrong")
 
+
 scheduler = APScheduler()
 scheduler.api_enabled = True
 scheduler.init_app(app)
+
 
 def send_daily_news(client, news):
     for news_item in news:
@@ -60,7 +62,8 @@ def send_daily_news(client, news):
         except Exception as e:
             logging.error(e)
 
-@scheduler.task('cron', id='daily_news_task', hour=1, minute=30)
+# @scheduler.task('cron', id='daily_news_task', hour=1, minute=30)
+
 def schedule_news():
     logging.info("=====> Start to send daily news!")
     all_news_blocks = build_all_news_block()
@@ -80,11 +83,28 @@ def send_crypto_news(client, news):
         except Exception as e:
             logging.error(e)
 
-@scheduler.task('cron', id='daily_crypto_task', hour=2, minute=30)
+# @scheduler.task('cron', id='daily_crypto_task', hour=2, minute=30)
+
 def crypto_news():
     logging.info("=====> Start to send crypto news!")
     all_crypto_blocks = build_all_crypto_block()
     send_crypto_news(slack_app.client, all_crypto_blocks)
+
+# Create a new function to trigger tasks based on message content
+def trigger_tasks(event, logger):
+    text = event.get("text", "").lower()
+    if "daily_news_task" in text:
+        schedule_news()
+        logger.info("Triggered daily_news_task")
+    if "daily_crypto_task" in text:
+        crypto_news()
+        logger.info("Triggered daily_crypto_task")
+
+# Add a new middleware function to check for trigger conditions
+def check_trigger_conditions(message, next):
+    if message.get("user") == "U0508DAPDH9":
+        trigger_tasks(message, logging)
+    next()
 
 @app.route("/slack/events", methods=["POST"])
 def slack_events():
@@ -265,6 +285,7 @@ def handle_mentions(event, say, logger):
             return
     
     bot_process(event, say, logger)
+
     
 
 def bot_messages(message, next):
@@ -275,7 +296,7 @@ def bot_messages(message, next):
         logging.info(f"This is a message to bot: {message}")
         next()
 
-@slack_app.event(event="message", middleware=[bot_messages])
+@slack_app.event(event="message", middleware=[check_trigger_conditions, bot_messages])
 def log_message(logger, event, say):
     try:
         if is_premium_user(event["user"]):
