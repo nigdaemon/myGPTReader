@@ -162,8 +162,8 @@ filetype_extension_allowed = ['epub', 'pdf', 'text', 'docx', 'markdown', 'm4a', 
 filetype_voice_extension_allowed = ['m4a', 'webm', 'mp3', 'wav']
 max_file_size = 3 * 1024 * 1024
 
-limiter_message_per_user = 15
-limiter_time_period = 3 * 3600
+limiter_message_per_user = 30
+limiter_time_period = 1 * 3600
 limiter = RateLimiter(limit=limiter_message_per_user, period=limiter_time_period)
     
 def dialog_context_keep_latest(dialog_texts, max_length=1):
@@ -281,7 +281,7 @@ def handle_mentions(event, say, logger):
 
     if not limiter.allow_request(user):
         if not is_premium_user(user):
-            say(f'<@{user}>, you have reached the limit of {limiter_message_per_user} messages {limiter_time_period / 3600} hour, please try again later or contact the <@U051JKES6Q1>.', thread_ts=thread_ts)
+            say(f'<@{user}>, you have reached the limit of {limiter_message_per_user} messages {limiter_time_period / 3600} hour, please try again later or contact the <@U0508DAPDH9>.', thread_ts=thread_ts)
             return
     
     bot_process(event, say, logger)
